@@ -1,0 +1,10 @@
+{
+  "ALLOW_IPS": ["127.0.0.1", "localhost"],
+  "APP_SECRET": "secret!",
+  "CRYPTO_SALT": "SALTsaltSALTsaltSALTsaltSALTsalt",
+  "ACCESS_TOKEN": "token",
+
+  "REDIS_HOST": "localhost",
+  "REDIS_PORT": 6379,
+  "REDIS_PASSWORD": null
+}

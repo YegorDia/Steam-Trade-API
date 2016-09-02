@@ -1,0 +1,15 @@
+*.pyc
+*.log
+*.zip
+*.rar
+*.cookie
+*-cache.json
+celerybeat*
+
+.idea/
+build/
+files/
+log/
+cookie/
+
+cfg/deploy.json

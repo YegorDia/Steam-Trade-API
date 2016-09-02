@@ -1,0 +1,60 @@
+{% extends "layout.jinja2" %}
+
+{% block meta %}
+    <title>Steam Trade API Panel / Global Settings</title>
+    <meta name="author" content="YD">
+{% endblock %}
+
+{% include "header.jinja2" %}
+
+{% block body %}
+    <div class="jumbotron">
+        <form method="POST" action="/settings/save">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                <label for="maxtransactions">Max Transcations Per User</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="maxtransactions" name="maxtransactions" placeholder="1">
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                <label for="confirmationwaittime">Confirmation Wait Time</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="confirmationwaittime" name="confirmationwaittime" placeholder="300">
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                <label for="inventoryappids">Load Inventories For appids</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inventoryappids" name="inventoryappids" placeholder="730,">
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                <label for="accepthold">Accept Trade Hold Offers</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="accepthold" name="accepthold" placeholder="False">
+                            </td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-default">Save</button>
+        </form>
+    </div>
+{% endblock %}

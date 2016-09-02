@@ -1,0 +1,3 @@
+[submodule "simple_crypto"]
+	path = simple_crypto
+	url = https://github.com/YegorDia/Simple-Crypto.git

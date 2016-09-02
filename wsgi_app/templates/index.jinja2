@@ -1,0 +1,70 @@
+{% extends "layout.jinja2" %}
+
+{% block meta %}
+    <title>Steam Trade API Panel</title>
+    <meta name="author" content="YD">
+{% endblock %}
+
+{% include "header.jinja2" %}
+
+{% block body %}
+    <h4>Processing Deposits</h4>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Server Id</th>
+                <th>Steam Id</th>
+                <th>Trade Token</th>
+                <th>Assets</th>
+                <th>Security Code</th>
+                <th>Bot</th>
+                <th>Additional</th>
+                <th>Celery Task Id</th>
+                <th>Status</th>
+            </tr>
+            {% for deposit in deposits %}
+                <tr>
+                    <td>{{ deposit.server_id }}</td>
+                    <td><a target="_blank" href="https://steamcommunity.com/profiles/{{ deposit.steam_id }}">{{ deposit.steam_id }}</a></td>
+                    <td>{{ deposit.trade_token }}</td>
+                    <td>{{ deposit.assets }}</td>
+                    <td>{{ deposit.security_code }}</td>
+                    <td>{{ deposit.bot }}</td>
+                    <td>{{ deposit.data }}</td>
+                    <td>{{ deposit.celery_task_id }}</td>
+                    <td>{{ deposit.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Processing Withdrawals</h4>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Server Id</th>
+                <th>Steam Id</th>
+                <th>Trade Token</th>
+                <th>Assets</th>
+                <th>Security Code</th>
+                <th>Bot</th>
+                <th>Additional</th>
+                <th>Celery Task Id</th>
+                <th>Status</th>
+            </tr>
+            {% for withdrawal in withdrawals %}
+                <tr>
+                    <td>{{ withdrawal.server_id }}</td>
+                    <td><a target="_blank" href="https://steamcommunity.com/profiles/{{ withdrawal.steam_id }}">{{ withdrawal.steam_id }}</a></td>
+                    <td>{{ withdrawal.trade_token }}</td>
+                    <td>{{ withdrawal.assets }}</td>
+                    <td>{{ withdrawal.security_code }}</td>
+                    <td>{{ withdrawal.bot }} ({{ withdrawal.bot_username }})</td>
+                    <td>{{ withdrawal.data }}</td>
+                    <td>{{ withdrawal.celery_task_id }}</td>
+                    <td>{{ withdrawal.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
