@@ -396,21 +396,19 @@ def trade_inventory_report(app_id):
         app_id = int(app_id)
         bot_username = request.form.get("bot", None)
 
-        try:
-            if bot_username:
-                response = db_servers.request_inventory(server["host"], server["port"], bot_username, app_id, CONFIG["ACCESS_TOKEN"])
-                if response.get("success", False):
-                    result = db_inventories.set_inventory(
-                        server["_id"],
-                        bot_username,
-                        app_id,
-                        {"inventory": response["inventory"], "descriptions": response["descriptions"]}
-                    )
-                    if result:
-                        return "OK", 200
-                    return "Database inventory update error", 500
-        except:
-            pass
+		if bot_username:
+			response = db_servers.request_inventory(server["host"], server["port"], bot_username, app_id, CONFIG["ACCESS_TOKEN"])
+			if response.get("success", False):
+				result = db_inventories.set_inventory(
+					server["_id"],
+					bot_username,
+					app_id,
+					{"inventory": response["inventory"], "descriptions": response["descriptions"]}
+				)
+				if result:
+					return "OK", 200
+				return "Database inventory update error", 500
+  
         return abort(400)
     return abort(401)
 
